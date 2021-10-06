@@ -1,0 +1,37 @@
+.bootstrap-tagsinput{
+    border: 1px solid#66615B!important;
+}
+.badge.badge-info{
+    background: #dad8d8;
+    border-color: #66615B !important;
+    color: #494848 !important;
+}
+.bootstrap-tagsinput .badge {
+    font-size: 12px;
+}
+
+.bootstrap-tagsinput .badge {
+    padding-right: 25px;
+}
+.bootstrap-tagsinput .badge [data-role="remove"] {
+    cursor: pointer;
+    position: absolute;
+    top: 3.5px;
+    right: 6px;
+    opacity: 1;
+}
+.bootstrap-tagsinput .badge:hover [data-role="remove"] {
+    cursor: pointer;
+    position: absolute;
+    top: 3.5px;
+    right: 0px;
+    opacity: 1;
+}
+.bootstrap-tagsinput {
+    padding: 14px 16px;
+}
+.bootstrap-tagsinput .badge {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}

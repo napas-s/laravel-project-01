@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Kanit';
+    src: url('Kanit-Regular.eot');
+    src: url('Kanit-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Kanit-Regular.woff2') format('woff2'),
+        url('Kanit-Regular.woff') format('woff'),
+        url('Kanit-Regular.ttf') format('truetype'),
+        url('Kanit-Regular.svg#Kanit-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body,small,.font-body,.font-primary,.font-secondary,
+#primary-menu ul li > a,#primary-menu ul ul li > a,#primary-menu ul li .mega-menu-content.style-2 ul.mega-menu-column > li.mega-menu-title > a,
+#top-search form input,#top-account .dropdown-menu li a ,.entry-meta li ,.entry-link ,.entry-link span,.entry blockquote p ,.entry.entry-date-section span,
+.more-link ,.comment-content .comment-author span a,.wp-caption,.button.button-desc ,.button.button-desc span ,.feature-box.fbox-center.fbox-italic p,
+ul.tab-nav-lg li a,.testi-content p ,.team-title span,.counter,.skills li .progress-percent .counter,.quote:before ,label,.gm-style .gm-style-iw h3 span ,
+.before-heading ,.widget-filter-links li a,.nav-tree li a ,.nav-tree ul ul a ,.wedding-head .and ,.wedding-head .first-name span,
+.wedding-head .last-name span ,.wedding-head .and,#logo,
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Kanit' !important;
+}

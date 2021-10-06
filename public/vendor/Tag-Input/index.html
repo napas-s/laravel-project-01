@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Tagator: Tag Input Demos</title>
+	<link rel="stylesheet" href="fm.tagator.jquery.css"/>
+	<style>
+		body {
+			font-family: 'Roboto';
+			margin: 0;
+			padding: 0;
+      background-color:#f7f7f7;
+		}
+		#wrapper {
+			padding: 15px;
+      margin:100px auto;
+      max-width:728px;
+		}
+		#input_tagator1 {
+			width: 300px;
+		}
+		#activate_tagator2 {
+			width: 300px;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="fm.tagator.jquery.js"></script>
+	<script>
+		$(function () {
+			var $input_tagator1 = $('#input_tagator1');
+			var $activate_tagator1 = $('#activate_tagator1');
+			$activate_tagator1.click(function () {
+				if ($input_tagator1.data('tagator') === undefined) {
+					$input_tagator1.tagator({
+						autocomplete: ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth'],
+						useDimmer: true
+					});
+					$activate_tagator1.val('destroy tagator');
+				} else {
+					$input_tagator1.tagator('destroy');
+					$activate_tagator1.val('activate tagator');
+				}
+			});
+			$activate_tagator1.trigger('click');
+		});
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+
+		<input id="input_tagator1" name="input_tagator1" value="jQuery,Script,Net" placeholder="Please input some tags">
+
+	</div>
+</body>
+</html>

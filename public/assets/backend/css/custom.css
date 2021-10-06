@@ -1,0 +1,91 @@
+
+.transform-capitalize{text-transform:capitalize; }
+.right{ text-align: right !important;}
+.no-max-height{ max-height: unset !important;}
+.error-danger-text{ color: red;}
+.icon-width{ width: 60px; height: 60px;}
+
+.badge-eee{
+    background: #dad8d8;
+    border-color: #66615B !important;
+    color: #494848 !important;
+    font-size: 12px;
+    margin: 3px 3px 3px 0;
+    padding: 6px 8px 6px .8em;
+}
+
+.text-align-center{text-align: center;}
+.vertical-align-top{vertical-align: top;}
+
+.card label {
+    font-size: 0.8571em;
+    margin-bottom: 5px;
+    color: #686666;
+}
+textarea.form-control {
+    max-height: unset;
+}
+
+/* button */
+.input-btn{
+    cursor: pointer !important;
+    width:100% !important;
+    margin-top:0px !important;
+}
+
+/* swal2 */
+.swal2-container .select2-container{ display: none !important; }
+
+/* data table */
+.pagination {justify-content: flex-end;}
+
+/* margin */
+.mg-b-10{ margin-bottom: 10px;}
+
+.form-radio-line{ display: inline;}
+.line{
+    border-bottom: 1px solid #dddcdc;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #DDDDDD !important;
+}
+.select2-container .select2-selection--multiple {
+    padding-top: 5px;
+    padding-bottom: 2px;
+}
+
+.sidebar .sidebar-wrapper, .off-canvas-sidebar .sidebar-wrapper {
+    height: calc(100vh - 0px) !important;
+    overflow: scroll !important;
+}
+
+.hidden_Artlice{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid #d3d3d3 !important;
+}
+
+.hidden_Artlice a:hover{
+    cursor: pointer !important;
+}
+
+.hidden_Artlice a:hover{
+    color: #646464 !important;
+}
+
+table a{
+    color: #252422;
+}
+table a:hover{
+    color: #646464;
+}
+
+.table-width{
+    max-height: 120px;
+}
+
+#setDate.hidden{
+    display: none !important;
+}
