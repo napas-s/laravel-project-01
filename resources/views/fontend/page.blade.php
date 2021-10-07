@@ -37,21 +37,23 @@
                                 </ul>
                                 <div class="clearfix"></div>
 
-                                <div class="si-share noborder clearfix">
-                                    <span>แบ่งปัน:</span>
+                                <div class="dis-share">
+                                    <div>แบ่งปัน:</div>
                                     <div>
-                                        <a href="http://www.facebook.com/sharer.php?u={{ route('fronend.page.detail',$pages->page_parmalink) }}" target="_blank" class="social-icon si-borderless si-facebook">
-                                            <i class="icon-facebook"></i>
-                                            <i class="icon-facebook"></i>
-                                        </a>
-                                        <a href="http://twitter.com/share?url={{ route('fronend.page.detail',$pages->page_parmalink) }}" target="_blank" class="social-icon si-borderless si-twitter">
-                                            <i class="icon-twitter"></i>
-                                            <i class="icon-twitter"></i>
-                                        </a>
-                                        <a href="https://social-plugins.line.me/lineit/share?url={{ route('fronend.page.detail',$pages->page_parmalink) }}" target="_blank" class="social-icon si-borderless si-ebay">
-                                            <i><img src="{{ asset('assets/fontend/images/icons/social/Line-Icon-b-borderless.png') }}" class="icon-less" alt="Line borderless"></i>
-                                            <i><img src="{{ asset('assets/fontend/images/icons/social/Line-Icon-b-borderless.png') }}" class="icon-less" alt="Line borderless"></i>
-                                        </a>
+                                        <div class="float-right">
+                                            <a href="http://www.facebook.com/sharer.php?u={{ route('fronend.page.detail',$pages->page_parmalink) }}" target="_blank" class="social-icon si-small si-colored si-facebook">
+                                                <i class="icon-facebook"></i>
+                                                <i class="icon-facebook"></i>
+                                            </a>
+                                            <a href="http://twitter.com/share?url={{ route('fronend.page.detail',$pages->page_parmalink) }}" target="_blank" class="social-icon si-small si-colored si-twitter">
+                                                <i class="icon-twitter"></i>
+                                                <i class="icon-twitter"></i>
+                                            </a>
+                                            <a href="https://social-plugins.line.me/lineit/share?url={{ route('fronend.page.detail',$pages->page_parmalink) }}" target="_blank" class="social-icon si-small si-colored si-ebay">
+                                                <i><img src="{{ asset('assets/fontend/images/icons/social/Line-Icon-b-borderless.png') }}" class="icon-less" alt="Line borderless"></i>
+                                                <i><img src="{{ asset('assets/fontend/images/icons/social/Line-Icon-b-borderless.png') }}" class="icon-less" alt="Line borderless"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
