@@ -34,7 +34,7 @@
 					</span>
 				</div>
 
-                <form id="form-auth" method="POST" action="{{ route('zanagun') }}" class="login100-form validate-form">
+                <form id="form-auth" method="POST" action="{{ route('administrator') }}" class="login100-form validate-form">
                     @csrf
 					<div class="wrap-input100 validate-input m-b-18" data-validate="กรุณากรอกชื่อผู้ใช้">
 						<span class="label-input100">ชื่อผู้ใช้</span>

@@ -87,7 +87,9 @@ class ArtlicleController extends Controller
         }
 
         if($request->art_keyword != ''){
-			$art_keyword = implode(",", $request->art_keyword);
+            $art_keyword_str_replace1 = str_replace("null","",$request->art_keyword);
+            $art_keyword_str_replace = str_replace(" ","",$art_keyword_str_replace1);
+			$art_keyword = implode(",", $art_keyword_str_replace);
 		} else {
 			$art_keyword = '';
 		}
@@ -135,17 +137,25 @@ class ArtlicleController extends Controller
         $data->save();
 
         $log = LogTag::first();
-        $articleTags = explode(",",$log->value);
-        $TagNew = explode(",",$art_keyword);
 
-        $totalArray	=	array_merge($articleTags,$TagNew);//รวม array
-        $setlog	=	array_unique($totalArray);//ลบ array ที่ซ้ำออก เลือกแค่ 1
+        if(!empty($log)){
+            $articleTags = explode(",",$log->value);
+            $TagNew = explode(",",$art_keyword);
 
-        $setlogBase = implode(",", $setlog);
+            $totalArray	=	array_merge($articleTags,$TagNew);//รวม array
+            $setlog	=	array_unique($totalArray);//ลบ array ที่ซ้ำออก เลือกแค่ 1
 
-        $loh_history        = LogTag::first();
-        $loh_history->value = $setlogBase;
-        $loh_history->save();
+            $setlogBase = implode(",", $setlog);
+
+            $loh_history        = LogTag::first();
+            $loh_history->value = $setlogBase;
+            $loh_history->save();
+        }else{
+
+            $loh_history        = new LogTag;
+            $loh_history->value = $art_keyword;
+            $loh_history->save();
+        }
 
         return redirect()->route('artlicle.edit',[$data->id])->with('feedback', 'เพิ่มข้อมูลเรียบร้อยแล้ว!');
 
@@ -198,7 +208,9 @@ class ArtlicleController extends Controller
         }
 
         if($request->art_keyword != ''){
-			$art_keyword = implode(",", $request->art_keyword);
+            $art_keyword_str_replace1 = str_replace("null","",$request->art_keyword);
+            $art_keyword_str_replace = str_replace(" ","",$art_keyword_str_replace1);
+			$art_keyword = implode(",", $art_keyword_str_replace);
 		} else {
 			$art_keyword = '';
 		}
@@ -244,17 +256,25 @@ class ArtlicleController extends Controller
         $data->save();
 
         $log = LogTag::first();
-        $articleTags = explode(",",$log->value);
-        $TagNew = explode(",",$art_keyword);
 
-        $totalArray	=	array_merge($articleTags,$TagNew);//รวม array
-        $setlog	=	array_unique($totalArray);//ลบ array ที่ซ้ำออก เลือกแค่ 1
+        if(!empty($log)){
+            $articleTags = explode(",",$log->value);
+            $TagNew = explode(",",$art_keyword);
 
-        $setlogBase = implode(",", $setlog);
+            $totalArray	=	array_merge($articleTags,$TagNew);//รวม array
+            $setlog	=	array_unique($totalArray);//ลบ array ที่ซ้ำออก เลือกแค่ 1
 
-        $loh_history        = LogTag::first();
-        $loh_history->value = $setlogBase;
-        $loh_history->save();
+            $setlogBase = implode(",", $setlog);
+
+            $loh_history        = LogTag::first();
+            $loh_history->value = $setlogBase;
+            $loh_history->save();
+        }else{
+
+            $loh_history        = new LogTag;
+            $loh_history->value = $art_keyword;
+            $loh_history->save();
+        }
 
         return back()->with('feedback', 'เพิ่มข้อมูลเรียบร้อยแล้ว!');
 
@@ -439,6 +459,20 @@ class ArtlicleController extends Controller
         }else{
             return [];
         }
+    }
+
+    public function deleteImg(Request $request){
+
+        $check = TbArticle::where('id',$request->deleteId)->first();
+        if (!empty($check->art_thumb)) {
+            @unlink(Storage::disk('public')->path('article/').$check->art_thumb);
+        }
+
+        $data = TbArticle::where('id',$request->deleteId)->first();
+        $data->art_thumb              = null;
+        $data->save();
+
+        return back()->with('feedback', 'อัพเดตข้อมูลเรียบร้อยแล้ว!');
     }
 
     private function rewrite_url($url){

@@ -27,6 +27,13 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
+                    @if(!empty($data->setting_logoWeb))
+                    <a href="#" class="remove-logo" data-toggle="modal" data-target="#myDeletelogo" onclick="deleteModal(this)" href="#" data-id="{{ $data->id }}" data-name="{{ $data->setting_logoWeb }}">
+                        <button class="btn btn-icon btn-round btn-google" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </a>
+                    @endisset
                     <div class="text-align-center">
                         @isset($data->setting_logoWeb)
                             <input type="hidden" class="form-control" id="setting_logoWeb_old" name="setting_logoWeb_old" value="{{ $data->setting_logoWeb }}">
@@ -45,6 +52,13 @@
             </div>
             <div class="card">
                 <div class="card-body">
+                    @if(!empty($data->setting_iconWeb))
+                    <a href="#" class="remove-logo" data-toggle="modal" data-target="#myDeleteicon" onclick="deleteModal2(this)" href="#" data-id="{{ $data->id }}" data-name="{{ $data->setting_iconWeb }}">
+                        <button class="btn btn-icon btn-round btn-google" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </a>
+                    @endisset
                     <div class="text-align-center">
                         @isset($data->setting_iconWeb)
                             <input type="hidden" class="form-control" id="setting_iconWeb_old" name="setting_iconWeb_old" value="{{ $data->setting_iconWeb }}">
@@ -121,6 +135,8 @@
 
 </form>
 
+@include('admin.setting.modal.deleteLogo')
+@include('admin.setting.modal.deleteIcon')
 @endsection
 
 @section('js')

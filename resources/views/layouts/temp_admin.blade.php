@@ -11,8 +11,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @if(!empty($setting->setting_iconWeb))
     <link rel="icon" href="{{ asset('storage/setting/'.$setting->setting_iconWeb) }}" type ="image/x-icon">
-    <title>{{ $setting->setting_nameWeb }}</title>
+    @endif
+    @if(!empty($setting->setting_nameWeb))<title>{{ $setting->setting_nameWeb }}</title>@endif
 
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />

@@ -75,7 +75,9 @@
                                     @endphp
                                     <div class="tagcloud clearfix bottommargin">
                                         @foreach ( $tags as $tag )
+                                            @if (!empty($tag))
                                             <a href="{{ route('fronend.search.tag',$tag) }}" rel="tag">{{ $tag }}</a>
+                                            @endif
                                         @endforeach
                                     </div>
                                 @endif

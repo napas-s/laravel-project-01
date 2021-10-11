@@ -143,12 +143,17 @@
                                 <span class="sidebar-normal"> ตั้งค่าเพิ่มเติม </span>
                                 </a>
                             </li>
+                            @php
+                                $logtag_menu = App\Models\LogTag::first();
+                            @endphp
+                            @if(!empty($logtag_menu))
                             <li class="subMenu">
                                 <a href="{{ route('setting.logtag') }}">
                                 <span class="sidebar-mini-icon">TM</span>
                                 <span class="sidebar-normal"> Tag Manager </span>
                                 </a>
                             </li>
+                            @endif
                         </ul>
                     </div>
                 </li>

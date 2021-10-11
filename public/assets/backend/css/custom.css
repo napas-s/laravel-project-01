@@ -89,3 +89,8 @@ table a:hover{
 #setDate.hidden{
     display: none !important;
 }
+.remove-logo{
+    position: absolute;
+    right: -10px;
+    top: -20px;
+}

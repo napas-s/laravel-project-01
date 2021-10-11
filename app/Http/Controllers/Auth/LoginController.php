@@ -31,7 +31,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-    protected $loginPath = '/zanagun';
+    protected $loginPath = '/administrator';
     /**
      * Create a new controller instance.
      *
@@ -61,6 +61,6 @@ class LoginController extends Controller
     {
         Auth::logout();
 
-        return redirect('/zanagun');
+        return redirect('/administrator');
     }
 }

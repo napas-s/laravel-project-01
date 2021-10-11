@@ -71,7 +71,7 @@ class SettingController extends Controller
         $data->setting_nameWeb              = $request->setting_nameWeb;
         $data->setting_detail               = $request->setting_detail;
         $data->setting_keyword              = $request->setting_keyword;
-        $data->updated_by                   = Auth::user()->penname;
+        $data->updated_by                   = Auth::user()->displayname;
         $data->updated_at                   = date('Y-m-d H:i:s');
 
         if (!empty($request->setting_logoWeb)) {
@@ -106,6 +106,36 @@ class SettingController extends Controller
 
     }
 
+    public function deleteLogo(Request $request){
+
+        $check = TbSetting::first();
+        if (!empty($check->setting_logoWeb)) {
+            @unlink(Storage::disk('public')->path('setting/').$check->setting_logoWeb);
+        }
+
+        $data = TbSetting::first();
+        $data->setting_logoWeb              = null;
+        $data->save();
+
+        return back()->with('feedback', 'อัพเดตข้อมูลเรียบร้อยแล้ว!');
+
+    }
+
+    public function deleteIcon(Request $request){
+
+        $check = TbSetting::first();
+        if (!empty($check->setting_iconWeb)) {
+            @unlink(Storage::disk('public')->path('setting/').$check->setting_iconWeb);
+        }
+
+        $data = TbSetting::first();
+        $data->setting_iconWeb              = null;
+        $data->save();
+
+        return back()->with('feedback', 'อัพเดตข้อมูลเรียบร้อยแล้ว!');
+
+    }
+
     public function updateContact(Request $request,$id){
 
         $data = TbSetting::findOrFail($id);
@@ -118,7 +148,7 @@ class SettingController extends Controller
         $data->setting_LinkTwitter                  = $request->setting_LinkTwitter;
         $data->setting_LinkInstagram                = $request->setting_LinkInstagram;
         $data->setting_LinkFacebook                 = $request->setting_LinkFacebook;
-        $data->updated_by                           = Auth::user()->penname;
+        $data->updated_by                           = Auth::user()->displayname;
         $data->updated_at                           = date('Y-m-d H:i:s');
         $data->save();
 
@@ -141,9 +171,9 @@ class SettingController extends Controller
         $data->ext_histats               = $request->ext_histats;
         $data->ext_captcha_status        = $show;
         $data->ext_captcha               = $request->ext_histats;
-        $data->created_by                = Auth::user()->penname;
+        $data->created_by                = Auth::user()->displayname;
         $data->created_at                = date('Y-m-d H:i:s');
-        $data->updated_by                = Auth::user()->penname;
+        $data->updated_by                = Auth::user()->displayname;
         $data->updated_at                = date('Y-m-d H:i:s');
         $data->save();
 
@@ -167,7 +197,7 @@ class SettingController extends Controller
         $data->ext_histats               = $request->ext_histats;
         $data->ext_captcha_status        = $show;
         $data->ext_captcha               = $request->ext_captcha;
-        $data->updated_by                = Auth::user()->penname;
+        $data->updated_by                = Auth::user()->displayname;
         $data->updated_at                = date('Y-m-d H:i:s');
         $data->save();
 
@@ -195,7 +225,7 @@ class SettingController extends Controller
 
         $data = LogTag::findOrFail(1);
         $data->value        = $request->logTag;
-        $data->updated_by   = Auth::user()->penname;
+        $data->updated_by   = Auth::user()->displayname;
         $data->updated_at   = date('Y-m-d H:i:s');
         $data->save();
 

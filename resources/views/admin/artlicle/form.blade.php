@@ -139,6 +139,13 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
+                            @if(!empty($data->art_thumb))
+                            <a href="#" class="remove-logo" data-toggle="modal" data-target="#myDelete" onclick="deleteModal(this)" href="#" data-id="{{ $data->id }}" data-name="{{ $data->art_thumb }}">
+                                <button class="btn btn-icon btn-round btn-google" type="button">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </a>
+                            @endisset
                             <div class="text-align-center">
                                 @isset($data->art_thumb)
                                     <input type="hidden" class="form-control" id="art_thumb_old" name="art_thumb_old" value="{{ $data->art_thumb }}">
@@ -176,7 +183,9 @@
     </div>
 </div>
 
-@include('admin.artlicle.modal.recommend')
+@if(!empty($data->art_thumb))
+@include('admin.artlicle.modal.deleteCover')
+@endif
 
 @endsection
 
@@ -221,8 +230,12 @@
                             var tagJson = item.split(",");
                             tagJson.forEach(function (Item) {
 
-                                if(old_tag.indexOf(Item) != -1){
-                                    selected = 'selected';
+                                if(old_tag != ""){
+                                    if(old_tag.indexOf(Item) != -1){
+                                        selected = 'selected';
+                                    }else{
+                                        selected = '';
+                                    }
                                 }else{
                                     selected = '';
                                 }

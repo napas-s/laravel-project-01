@@ -96,6 +96,14 @@ function deleteModal(e){
     $('#deleteName').html('"'+deleteName+'"');
 }
 
+function deleteModal2(e){
+    var deleteId = $(e).data('id');
+    var deleteName = $(e).data('name');
+
+    $('#deleteId2').val(deleteId);
+    $('#deleteName2').html('"'+deleteName+'"');
+}
+
 function setDate(e){
 
     if(e == 2){

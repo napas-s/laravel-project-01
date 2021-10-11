@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //login
-Route::get('zanagun', function () { return view('auth/login'); });
-Route::post('zanagun', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('zanagun');
+Route::get('administrator', function () { return view('auth/login'); });
+Route::post('administrator', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('administrator');
 
 Route::get('/', [App\Http\Controllers\FontendController::class, 'index'])->name('fronend.home');
 
@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth']], function () {
     //setting
     Route::get('/setting/index', [App\Http\Controllers\SettingController::class, 'index'])->name('setting.index');
     Route::put('/setting/updateSeting/{id}', [App\Http\Controllers\SettingController::class, 'updateSeting'])->name('setting.updateSeting');
+    Route::put('/setting/deleteLogo', [App\Http\Controllers\SettingController::class, 'deleteLogo'])->name('setting.deleteLogo');
+    Route::put('/setting/deleteIcon', [App\Http\Controllers\SettingController::class, 'deleteIcon'])->name('setting.deleteIcon');
     Route::get('/setting/contact', [App\Http\Controllers\SettingController::class, 'contact'])->name('setting.contact');
     Route::put('/setting/updateContact/{id}', [App\Http\Controllers\SettingController::class, 'updateContact'])->name('setting.updateContact');
     Route::get('/setting/extensions', [App\Http\Controllers\SettingController::class, 'extensions'])->name('setting.extensions');
@@ -98,6 +100,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/setting/artlicle/jsondata', [App\Http\Controllers\ArtlicleController::class, 'jsondata'])->name('artlicle.jsondata');
     Route::get('/setting/artlicle/getCat', [App\Http\Controllers\ArtlicleController::class, 'getCat'])->name('artlicle.getCat');
     Route::delete('setting/artlicle/delete', [App\Http\Controllers\ArtlicleController::class, 'delete'])->name('artlicle.delete');
+    Route::put('/setting/artlicle/deleteImg', [App\Http\Controllers\ArtlicleController::class, 'deleteImg'])->name('artlicle.deleteImg');
     Route::get('/setting/artlicle/random', [App\Http\Controllers\ArtlicleController::class, 'random'])->name('artlicle.random');
     Route::get('/setting/artlicle/search', [App\Http\Controllers\ArtlicleController::class, 'search'])->name('artlicle.search');
 

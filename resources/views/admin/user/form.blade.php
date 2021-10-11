@@ -209,8 +209,8 @@
                                     </div>
                                 </div>
                             </div>
-                            @if (Auth::user()->lastlogin !="")
-                                <label>เข้าใช้งานล่าสุด :: {{ Auth::user()->lastlogin }}</label>
+                            @if(!empty($data->lastlogin))
+                                <label>เข้าใช้งานล่าสุด :: {{ $data->lastlogin }}</label>
                             @endif
 
                             @if(!empty($data->update_by))

@@ -47,6 +47,7 @@ class UserController extends Controller
             'breadcrumb' => $breadcrumb,
             'data' => '',
             'levels' => $levels,
+            'history_penname' => '',
         ]);
 
     }
